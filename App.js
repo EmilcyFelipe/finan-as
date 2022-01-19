@@ -1,18 +1,20 @@
 import 'react-native-gesture-handler'
-
-import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import React from 'react'
+import { NavigationContainer } from '@react-navigation/native';
+import { Text, View, StatusBar } from 'react-native';
+import AuthProvider from './src/contexts/auth'
 
 import firebase from './src/services/firebaseConnection'
 
-import { NavigationContainer } from '@react-navigation/native';
 import Routes from './src/routes';
 
 export default function App() {
   return (
     <NavigationContainer>
+      <AuthProvider>
         <StatusBar backgroundColor='#131313' barStyle='light-content'/>
         <Routes/>
+      </AuthProvider>
     </NavigationContainer>
   );
 }
